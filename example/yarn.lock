@@ -200,10 +200,10 @@ duplexer2@~0.1.4:
   dependencies:
     readable-stream "^2.0.2"
 
-element3-core@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.nlark.com/element3-core/download/element3-core-0.0.1.tgz?cache=0&sync_timestamp=1620876550457&other_urls=https%3A%2F%2Fregistry.nlark.com%2Felement3-core%2Fdownload%2Felement3-core-0.0.1.tgz#5f47e7a53601d1671301f3230740784115e2ec80"
-  integrity sha1-X0fnpTYB0WcTAfMjB0B4QRXi7IA=
+element3-core@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.nlark.com/element3-core/download/element3-core-0.0.2.tgz?cache=0&sync_timestamp=1620876748647&other_urls=https%3A%2F%2Fregistry.nlark.com%2Felement3-core%2Fdownload%2Felement3-core-0.0.2.tgz#cd6eda4ae0a542aadf1b5c65af65b7d24ed605b5"
+  integrity sha1-zW7aSuClQqrfG1xlr2W30k7WBbU=
 
 emojis-list@^3.0.0:
   version "3.0.0"

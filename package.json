@@ -2,7 +2,8 @@
   "name": "element3-core",
   "version": "0.0.2",
   "description": "headless ui components library",
-  "main": "index.js",
+  "main": "dist/element3-core.esm.js",
+  "module": "dist/element3-core.esm.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "test-ct": "cypress open-ct",
