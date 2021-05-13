@@ -1,21 +1,20 @@
 <template>
   <div>
-    hello element3-core
+    hi element3-core
 
-    <div>
-      <Switch></Switch>
-    </div>
+    <SwitchDemo></SwitchDemo>
   </div>
 </template>
 
 <script lang="ts">
-import { Switch } from "element3-core";
+// import { Switch } from "element3-core";
 import { defineComponent } from "vue";
+import SwitchDemo from "./components/SwitchDemo.vue";
 
 export default defineComponent({
   name: "App",
   components: {
-    Switch,
+    SwitchDemo,
   },
 });
 </script>
