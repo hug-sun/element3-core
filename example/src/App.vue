@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts">
-import { Switch } from "../../dist/element3-core.esm.js";
+import { Switch } from "element3-core";
 import { defineComponent } from "vue";
 
 export default defineComponent({
