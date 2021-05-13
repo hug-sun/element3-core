@@ -1,6 +1,6 @@
 {
   "name": "element3-core",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "headless ui components library",
   "main": "index.js",
   "scripts": {
@@ -8,6 +8,11 @@
     "test-ct": "cypress open-ct",
     "build": "rollup -c"
   },
+  "files": [
+    "src",
+    "dist",
+    "types"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hug-sun/element3-core.git"
