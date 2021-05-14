@@ -3,7 +3,11 @@ import { ref } from "vue";
 import Switch from "./Switch";
 describe("Switch", () => {
   it("init", () => {
-    mount(Switch);
+    mount(Switch, {
+      slots: {
+        default: "switch",
+      },
+    });
   });
 
   it("toggle", () => {
@@ -11,7 +15,7 @@ describe("Switch", () => {
       template: `
         <div>
         {{boo}}
-        <Switch v-model="boo"></Switch> 
+        <Switch v-model="boo">switch</Switch> 
         </div>
       `,
       components: {

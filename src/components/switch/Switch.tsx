@@ -17,7 +17,7 @@ export default defineComponent({
 
   render() {
     const children = this.$slots.default?.() || [];
-    // todo 使用 jsx 可以优化生成的 vnode
+    // TODO 使用 jsx 可以优化生成的 vnode
     return h("button", { onClick: this.onClick }, children);
   },
 });
