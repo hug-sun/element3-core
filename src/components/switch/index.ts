@@ -1,3 +1,3 @@
-import Switch from "./Switch";
+import E3Switch from "./Switch";
 
-export { Switch };
+export { E3Switch };

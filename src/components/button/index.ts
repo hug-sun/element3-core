@@ -1,3 +1,3 @@
-import Button from "./Button";
+import E3Button from "./Button";
 
-export { Button };
+export { E3Button };
