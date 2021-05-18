@@ -11,6 +11,16 @@
         <p>button</p>
         <Button></Button>
       </div>
+
+      <div>
+        <p>slider 水平</p>
+        <HSlider></HSlider>
+      </div>
+
+      <div>
+        <p>slider 垂直</p>
+        <VSlider></VSlider>
+      </div>
     </div>
   </div>
 </template>
@@ -19,12 +29,16 @@
 import { defineComponent } from "vue";
 import Switch from "./components/Switch/Switch.vue";
 import Button from "./components/Button/Button.vue";
+import HSlider from "./components/Slider/HSlider.vue";
+import VSlider from "./components/Slider/VSlider.vue";
 
 export default defineComponent({
   name: "App",
   components: {
     Switch,
     Button,
+    HSlider,
+    VSlider
   },
 });
 </script>
