@@ -435,10 +435,10 @@ electron-to-chromium@^1.3.723:
   resolved "https://registry.nlark.com/electron-to-chromium/download/electron-to-chromium-1.3.727.tgz"
   integrity sha1-hX4xDKAPC3XaTh22/w4HPMSpHd8=
 
-element3-core@0.0.3:
-  version "0.0.3"
-  resolved "https://registry.nlark.com/element3-core/download/element3-core-0.0.3.tgz"
-  integrity sha1-fGZjlyR2dM2/y049HL0if8d5sUs=
+element3-core@0.0.7:
+  version "0.0.7"
+  resolved "https://registry.nlark.com/element3-core/download/element3-core-0.0.7.tgz#aef2ffdc71f63c559451a14069669fc76b47063e"
+  integrity sha1-rvL/3HH2PFWUUaFAaWafx2tHBj4=
 
 emojis-list@^3.0.0:
   version "3.0.0"

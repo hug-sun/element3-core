@@ -7,7 +7,7 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "element3-core": "0.0.3",
+    "element3-core": "0.0.7",
     "vue": "^3.0.5"
   },
   "devDependencies": {

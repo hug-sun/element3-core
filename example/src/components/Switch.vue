@@ -1,5 +1,5 @@
 <template>
-  <Switch
+  <E3Switch
     v-model="enabled"
     :class="enabled ? 'bg-blue-600' : 'bg-gray-200'"
     class="
@@ -40,16 +40,16 @@
         rounded-full
       "
     /> -->
-  </Switch>
+  </E3Switch>
 </template>
 
 <script>
 import { ref } from "vue";
-import { Switch } from "../../../dist/element3-core.esm.js";
+import { E3Switch } from "element3-core";
 import draw from "./draw.frag";
 export default {
   components: {
-    Switch,
+    E3Switch,
     draw,
   },
   setup() {

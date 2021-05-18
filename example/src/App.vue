@@ -4,28 +4,27 @@
     <div>
       <div>
         <p>switch</p>
-        <SwitchDemo></SwitchDemo>
+        <Switch></Switch>
       </div>
 
       <div>
         <p>button</p>
-        <ButtonDemo></ButtonDemo>
+        <Button></Button>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-// import { Switch } from "element3-core";
 import { defineComponent } from "vue";
-import SwitchDemo from "./components/SwitchDemo.vue";
-import ButtonDemo from "./components/ButtonDemo.vue";
+import Switch from "./components/Switch.vue";
+import Button from "./components/Button.vue";
 
 export default defineComponent({
   name: "App",
   components: {
-    SwitchDemo,
-    ButtonDemo,
+    Switch,
+    Button,
   },
 });
 </script>

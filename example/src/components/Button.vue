@@ -1,19 +1,19 @@
 <template>
   <div>
-    <Button v-model="enter">
+    <E3Button v-model="enter">
       {{ enter ? "按下" : "抬起" }}
       <draw></draw>
-    </Button>
+    </E3Button>
   </div>
 </template>
 
 <script>
-import { Button } from "../../../dist/element3-core.esm.js";
+import { E3Button } from "element3-core";
 import draw from "./metal2.frag";
 import { ref } from "vue";
 export default {
   components: {
-    Button,
+    E3Button,
     draw,
   },
   setup() {
