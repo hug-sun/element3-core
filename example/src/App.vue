@@ -17,8 +17,8 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import Switch from "./components/Switch.vue";
-import Button from "./components/Button.vue";
+import Switch from "./components/Switch/Switch.vue";
+import Button from "./components/Button/Button.vue";
 
 export default defineComponent({
   name: "App",
