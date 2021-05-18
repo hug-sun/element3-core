@@ -1,2 +1,3 @@
-export { Switch } from "./components/switch";
-export { Button } from "./components/button";
+export * from "./components/switch";
+export * from "./components/button";
+export * from "./components/slider";
