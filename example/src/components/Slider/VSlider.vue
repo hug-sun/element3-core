@@ -11,7 +11,7 @@
 <script>
 import { E3Slider, E3SliderButton } from "element3-core";
 import { ref, computed } from "vue";
-import draw from "../../webglComponents/metal2.frag";
+import draw from "../../webglComponents/metal.frag";
 
 export default {
   components: {
