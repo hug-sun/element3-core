@@ -1043,10 +1043,10 @@ rimraf@2:
   dependencies:
     glob "^7.1.3"
 
-rollup-plugin-element3-webgl@0.0.2:
-  version "0.0.2"
-  resolved "https://registry.nlark.com/rollup-plugin-element3-webgl/download/rollup-plugin-element3-webgl-0.0.2.tgz#499726550c73840be911a346ffdd4c42d658128c"
-  integrity sha1-SZcmVQxzhAvpEaNG/91MQtZYEow=
+rollup-plugin-element3-webgl@0.0.5:
+  version "0.0.5"
+  resolved "https://registry.nlark.com/rollup-plugin-element3-webgl/download/rollup-plugin-element3-webgl-0.0.5.tgz#7c4b3ee45a083b7d3ff12e1c46254f8b70419d05"
+  integrity sha1-fEs+5FoIO30/8S4cRiVPi3BBnQU=
 
 rollup@^2.38.5:
   version "2.48.0"
