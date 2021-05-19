@@ -14,7 +14,6 @@ export default defineComponent({
     const putUp = () => {
       emit("update:modelValue", false);
     };
-
     const onMouseup = () => {
       putUp();
     };
@@ -31,11 +30,11 @@ export default defineComponent({
 
   render() {
     const children = this.$slots.default?.() || [];
-    // TODO 使用 jsx 可以优化生成的 vnode
-    return h(
-      "button",
-      { onMouseup: this.onMouseup, onMousedown: this.onMousedown },
-      children
+
+    return (
+      <button onMouseup={this.onMouseup} onMousedown={this.onMousedown}>
+        {children}
+      </button>
     );
   },
 });
