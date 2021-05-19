@@ -39,7 +39,7 @@
 
 <script>
 import { E3Button } from "element3-core";
-import draw from "../../metal2.frag";
+import draw from "../../webglComponents/metal2.frag";
 import { ref } from "vue";
 export default {
   components: {
