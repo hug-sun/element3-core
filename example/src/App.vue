@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="height:1000px;">
     hi element3-core
     <div>
       <div>
@@ -9,17 +9,18 @@
 
       <div>
         <p>button</p>
+        <input type="range" v-model="slideR" min="0" max="255"/>
+        <input type="range" v-model="slideG" min="0" max="255"/>
+        <input type="range" v-model="slideB" min="0" max="255"/>
+        
         <Button></Button>
+        <Button></Button>
+        <Button :r="colorR" :g="colorG" :b="colorB"></Button>
       </div>
 
       <div>
         <p>slider 水平</p>
         <HSlider></HSlider>
-      </div>
-
-      <div>
-        <p>slider 垂直</p>
-        <VSlider></VSlider>
       </div>
     </div>
   </div>
@@ -31,6 +32,7 @@ import Switch from "./components/Switch/Switch.vue";
 import Button from "./components/Button/Button.vue";
 import HSlider from "./components/Slider/HSlider.vue";
 import VSlider from "./components/Slider/VSlider.vue";
+import { ref, computed } from "vue";
 
 export default defineComponent({
   name: "App",
@@ -40,16 +42,46 @@ export default defineComponent({
     HSlider,
     VSlider
   },
+  setup(){
+    const slideR = ref(0);
+    const slideG = ref(0);
+    const slideB = ref(0);
+
+    const colorR = computed(()=>{
+      return slideR.value/255;
+    });
+    const colorG = computed(()=>{
+      return slideG.value/255;
+    });
+    const colorB = computed(()=>{
+      return slideB.value/255;
+    });
+
+    return {
+      colorR,
+      colorG,
+      colorB,
+      slideR,
+      slideG,
+      slideB
+    }
+  }
 });
 </script>
 
 <style>
+*{
+  box-sizing: border-box;
+  user-select: none;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: #fff;
+  background: radial-gradient(#000 16%, transparent 17%), radial-gradient(#444 16%, transparent 17%) 0px 1px, radial-gradient(#000 16%, transparent 17%) 8px 8px, radial-gradient(#444 16%, transparent 17%) 8px 9px;
+    background-color: #282828;
+    background-size: 16px 16px;
 }
 </style>

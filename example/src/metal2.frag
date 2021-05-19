@@ -1,5 +1,9 @@
 precision mediump float;
 
+uniform float iTime;
+uniform float iWidth;
+uniform float iHeight;
+
 highp float rand(vec2 co)
 {
     /*if(int(co.x) < 50 && int(co.x) > 46  && int(co.y) < 50 && int(co.y) > 46) {
@@ -20,10 +24,10 @@ const int count = 15;
 vec4 blur(vec2 co)
 {
     vec4 color = vec4(0.0, 0.0, 0.0, 0.0);
-    float x = co.x - 300.0;
-    float y = co.y - 300.0;
+    float x = co.x - iWidth / 2.;
+    float y = co.y - iHeight / 2.;
 
-    float theta = atan(co.y - 300.0, co.x - 300.0);
+    float theta = atan(co.y - iHeight / 2., co.x - iWidth / 2.);
     float r = sqrt(x * x + y * y);
     
     for(int i = -count; i <= count; i++) {
@@ -36,9 +40,10 @@ vec4 blur(vec2 co)
 vec4 gradient(vec2 co)
 {
     vec4 color = vec4(0.0, 1.0, 1.0, 1.0);
-    float x = co.x - 300.0;
-    float y = co.y - 300.0;
-    float theta = atan(co.y - 300.0, co.x - 300.0);
+    float x = co.x - iWidth / 2.;
+    float y = co.y - iHeight / 2.;
+    float theta = atan(co.y - iWidth / 2., co.x - iHeight / 2.);
+    theta += iTime;
     float r = sqrt(x * x + y * y);
     color = vec4(vec3(sin(theta * 4.0) + 3.0) / 4.0, 1.0);
     return color;
