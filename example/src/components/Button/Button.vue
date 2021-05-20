@@ -41,7 +41,7 @@
 <script>
 import { E3Button } from "element3-core";
 import draw from "../../webglComponents/metal.frag";
-import { computed, ref } from "vue";
+import { ref, watch,computed } from "vue";
 export default {
   components: {
     E3Button,
@@ -58,6 +58,13 @@ export default {
     }
   },
   setup(props) {
+    watch(
+      () => props.r,
+      () => {
+        console.log("r", props.r);
+      }
+    );
+
     const enter = ref(false);
 
     const buttonWidth = ref(120);
@@ -98,8 +105,8 @@ export default {
       transform: "translateY(2px)",
     };
 
-    const m1 = ref(70);
-    const m2 = ref(15);
+    const m1 = ref(40);
+    const m2 = ref(20);
 
     return {
       buttonWidth,
