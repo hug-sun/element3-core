@@ -9,13 +9,11 @@
 
       <div>
         <p>button</p>
-        <input type="range" v-model="slideR" min="0" max="255"/>
-        <input type="range" v-model="slideG" min="0" max="255"/>
-        <input type="range" v-model="slideB" min="0" max="255"/>
-        
-        <Button></Button>
-        <Button></Button>
-        <Button :r="colorR" :g="colorG" :b="colorB"></Button>
+        <div style="display:flex;justify-content:space-evenly;">
+        <Button type="success"></Button>
+        <Button type="danger"></Button>
+        <Button type="primary"></Button>
+        </div>
       </div>
 
       <div>

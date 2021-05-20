@@ -2,7 +2,7 @@
   <div>
     <E3Slider :style="sliderStyle" v-model="value">
       <E3SliderButton :style="buttonStyle">
-        <draw :iTime="myTime" style="width:50px;height:50px;" width="100" height="100" :iWidth="buttonWidth" :iHeight="buttonHeight"></draw>
+        <draw :iTime="myTime" style="width:40px;height:40px;" width="80" height="80" :iWidth="buttonWidth" :iHeight="buttonHeight"></draw>
       </E3SliderButton>
     </E3Slider>
   </div>
@@ -23,8 +23,8 @@ export default {
     const width = 400;
     const value = ref(0);
 
-    const buttonWidth = ref(100);
-    const buttonHeight = ref(100);
+    const buttonWidth = ref(80);
+    const buttonHeight = ref(80);
 
     const sliderStyle = {
       height: "18px",
@@ -46,10 +46,11 @@ export default {
         background: "pink",
         borderRadius: "50%",
         overflow:"hidden",
-        width: "50px",
-        height: "50px",
+        width: "40px",
+        height: "40px",
+        cursor:"pointer",
         textAlign: "center",
-        transform: `translate(${(value.value / 100) * width-25}px,-18px)`,
+        transform: `translate(${(value.value / 100) * width-25}px,-16px)`,
         boxShadow:"0px 3px 4px #000"
       };
     });
