@@ -80,12 +80,6 @@ export default defineComponent({
 
   render() {
     const children = this.$slots.default?.() || [];
-    return h(
-      "div",
-      {
-        onMousedown: this.onMousedown,
-      },
-      children
-    );
+    return <div onMousedown={this.onMousedown}>{children}</div>;
   },
 });

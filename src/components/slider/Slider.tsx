@@ -68,6 +68,7 @@ export default defineComponent({
 
   render() {
     const children = this.$slots.default?.() || [];
-    return h("div", children);
+
+    return <div>{children}</div>;
   },
 });

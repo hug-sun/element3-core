@@ -31,10 +31,13 @@ export default defineComponent({
   render() {
     const children = this.$slots.default?.() || [];
 
+    // 动态创建标签
+    const Tag = "button";
+
     return (
-      <button onMouseup={this.onMouseup} onMousedown={this.onMousedown}>
+      <Tag onMouseup={this.onMouseup} onMousedown={this.onMousedown}>
         {children}
-      </button>
+      </Tag>
     );
   },
 });
