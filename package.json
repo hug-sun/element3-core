@@ -1,6 +1,6 @@
 {
   "name": "element3-core",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "headless ui components library",
   "main": "dist/element3-core.esm.js",
   "module": "dist/element3-core.esm.js",
