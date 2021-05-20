@@ -10,9 +10,9 @@
       <div>
         <p>button</p>
         <div style="display:flex;justify-content:space-evenly;">
-        <Button type="success"></Button>
-        <Button type="danger"></Button>
-        <Button type="primary"></Button>
+        <Button type="success" label="success"></Button>
+        <Button type="danger" label="danger"></Button>
+        <Button type="primary" label="primary"></Button>
         </div>
       </div>
 
@@ -20,6 +20,8 @@
         <p>slider 水平</p>
         <HSlider></HSlider>
       </div>
+
+      
     </div>
   </div>
 </template>
@@ -29,7 +31,7 @@ import { defineComponent } from "vue";
 import Switch from "./components/Switch/Switch.vue";
 import Button from "./components/Button/Button.vue";
 import HSlider from "./components/Slider/HSlider.vue";
-import VSlider from "./components/Slider/VSlider.vue";
+import RotateSlider from "./components/Slider/RotateSlider.vue";
 import { ref, computed } from "vue";
 
 export default defineComponent({
@@ -38,7 +40,7 @@ export default defineComponent({
     Switch,
     Button,
     HSlider,
-    VSlider
+    RotateSlider
   },
   setup(){
     const slideR = ref(0);

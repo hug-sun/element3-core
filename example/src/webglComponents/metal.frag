@@ -12,85 +12,56 @@ uniform float r;
 uniform float g;
 uniform float b;
 
+float radius=8.0;
 
-highp float random(vec2 co)
-{
-    highp float a = 12.9898;
-    highp float b = 78.233;
-    highp float c = 43758.5453;
-    highp float dt= dot(co.xy ,vec2(a,b));
-    highp float sn= mod(dt,3.14);
-    return fract(sin(sn) * c);
+vec3 rgb=vec3(r,g,b);
+
+vec2 u_CanvasSize = vec2(iWidth, iHeight);
+vec2 center = u_CanvasSize / 2.0;
+float len1 = length(center);
+float pi = acos(-1.0);
+
+//渐变
+float texture1(float x) {
+  float a = x / u_CanvasSize.x;
+  float b = radians(360.0) * 0.5 * a+1.0;
+  return (sin(b) + 1.0) / 2.0;
 }
 
-float noise (in vec2 st) {
-    vec2 i = floor(st);
-    vec2 f = fract(st);
-
-    // Four corners in 2D of a tile
-    highp float a = random(vec2(i.x, i.y));
-    highp float b = random(floor(vec2(i.x + 1., i.y)));
-    highp float c = random(floor(vec2(i.x, i.y + 1.)));
-    highp float d = random(floor(vec2(i.x + 1., i.y + 1.)));
-
-    vec2 u = f*f*(3.0-2.0*f);
-    // u = smoothstep(0.,1.,f);
-
-    // Mix 4 coorners percentages
-    //return a;
-    return mix(a, b, u.x) +
-        (c - a)* u.y * (1.0 - u.x) +
-        (d - b) * u.x * u.y;
+//水平拉丝
+float texture2(vec2 v) {
+  vec2 a = vec2(0.2222, 0.4444);
+  float n = dot(v, a);
+  return fract(tan(n));
 }
 
-float fbm (in vec2 st) {
-    // Initial values
-    float value = 0.0;
-    float amplitude = .5;
-    float frequency = 0.;
-    //
-    // Loop of octaves
-    for (int i = 0; i < OCTAVES; i++) {
-        value += amplitude * noise(st);
-        st *= 3.;
-        amplitude *= .7;
-    }
-    return value;
-}
-const int count = 50;
-
-vec3 blur(vec2 st){
-    vec4 color = vec4(0, 0, 0, 0);
-    for(int i = -count; i <= count; i++) {
-        float v = (random(st + vec2(i, i))  + 0.2) / (float(count) * 2.0 + 1.0);
-        color = color + vec4(vec3(v), 1.0); 
-    }
-    return color.xyz;
+//杂色
+float texture3(vec2 v) {
+  vec2 a = vec2(0.1234, 0.5678);
+  float n = dot(v, a);
+  return fract(tan(n) * 10000.0);
 }
 
-vec3 gradient(vec2 st) {
-    float d = (st.x * 2. + st.y * 1.0);
-    //d += iTime;
-    vec3 color = vec3(r, g, b);
-    //color = vec3(.85, .7, .45);
-    vec3 light = vec3(sin(d / iWidth * .9) * 0.6);
-    vec3 white = vec3(1.0);
-    return mix(color + light, white, m2 / 100.);
-}
+
+
 
 void main() {
-    vec2 st = gl_FragCoord.xy/600.0;
+  //极坐标系转二维直角坐标系
+  //渐变
+  float f1 = texture1(gl_FragCoord.x*cos(1.)-gl_FragCoord.y*sin(1.));
+  f1 = 0.65 * f1 + 0.35;
 
-    vec3 color1 = vec3(0.0);
-    color1 += fbm(st*1.0);
+  //拉丝
+  float f2 = texture2(gl_FragCoord.xy);
+  f2 = f2*0.3+0.5;
 
-    vec3 color2 = blur(gl_FragCoord.xy);
+  //杂色
+  float f3 = texture3(gl_FragCoord.xy);
 
-    vec3 color3 = gradient(gl_FragCoord.xy);
-
-    vec3 color = mix(color3, mix(color1, color2, 0.9), m1 / 100.0);
-
-    gl_FragColor = vec4(color.x, color.y, color.z, 1.0);
-    //gl_FragColor = vec4(0., 0., 0., 1.);
+  //复合颜色
+  float f = f1*f2;
+  vec3 color=rgb * f;
+  color*=1.4;
+  gl_FragColor = vec4(color, 1);
 }
 

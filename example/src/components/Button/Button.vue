@@ -8,17 +8,18 @@
       <div
         :style="{ transform: 'translateY(' + (enter ? 2 : 0) + 'px)' }"
         style="
+          font-family:'verdana';
           font-size: 24px;
           position: absolute;
           width: 100%;
           text-align: center;
           line-height: 60px;
-          color: rgba(0, 0, 0, 0.6);
-          text-shadow: 0px 1px 0px rgba(0,0,0,.2);
+          color: rgba(255,255,255,.8);
+          text-shadow: 0px -1px 0px rgba(0,0,0,.6);
           z-index: 2;
         "
       >
-        按钮
+        {{label}}
       </div>
       <draw
         :iTime="3.14159 / 8"
@@ -28,8 +29,8 @@
         :g="color.g"
         :b="color.b"
         :style="enter ? buttonEnterStyle : buttonStyle"
-        width="100"
-        height="60"
+        :width="buttonWidth"
+        :height="buttonHeight"
         :iWidth="buttonWidth"
         :iHeight="buttonHeight"
       ></draw>
@@ -47,6 +48,10 @@ export default {
     draw,
   },
   props: {
+    'label':{
+      type:String,
+      default:''
+    },
     'type': {
       type: String,
       default: 'normal',
@@ -55,8 +60,8 @@ export default {
   setup(props) {
     const enter = ref(false);
 
-    const buttonWidth = ref(60);
-    const buttonHeight = ref(100);
+    const buttonWidth = ref(120);
+    const buttonHeight = ref(60);
 
     const color = computed(()=>{
       if(props.type=="primary"){
@@ -79,14 +84,14 @@ export default {
     });
 
     const buttonStyle = {
-      width: "100px",
+      width: "120px",
       height: "60px",
       boxShadow: "0px 3px 4px #000",
       borderRadius: "8px",
       transform: "translateY(0px)",
     };
     const buttonEnterStyle = {
-      width: "100px",
+      width: "120px",
       height: "60px",
       boxShadow: "0px 1px 4px #000",
       borderRadius: "8px",
