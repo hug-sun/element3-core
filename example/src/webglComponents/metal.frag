@@ -1,60 +1,67 @@
-precision mediump float;
+precision highp float;
 
-uniform float iTime;
+#define OCTAVES 6
+
+uniform float m1;
+uniform float m2;
+
 uniform float iWidth;
 uniform float iHeight;
 
-highp float rand(vec2 co)
-{
-    /*if(int(co.x) < 50 && int(co.x) > 46  && int(co.y) < 50 && int(co.y) > 46) {
-        return 0.0;
-    } else {
-        return 1.0;
-    }*/
-    co = vec2(float(int(co.x / 0.5)), float(int(co.y / 0.5)));
-    highp float a = 12.9898;
-    highp float b = 78.233;
-    highp float c = 43758.5453;
-    highp float dt= dot(co.xy ,vec2(a,b));
-    highp float sn= mod(dt,3.14);
-    return fract(sin(sn) * c);
-}
-const int count = 15;
+uniform float r;
+uniform float g;
+uniform float b;
 
-vec2 roundToPrec(in vec2 st, float prec) { 
-    return floor(st / prec) * prec;
-}
+float radius=8.0;
 
-vec4 blur(vec2 co)
-{
-    vec4 color = vec4(0.0, 0.0, 0.0, 0.0);
-    float x = co.x - iWidth / 2.;
-    float y = co.y - iHeight / 2.;
+vec3 rgb=vec3(r,g,b);
 
-    float theta = atan(co.y - iHeight / 2., co.x - iWidth / 2.);
-    float r = sqrt(x * x + y * y);
-    
-    for(int i = -count; i <= count; i++) {
-        float v1 = rand(roundToPrec(vec2(cos(theta + float(i) / r) * r, sin(theta + float(i) / r) * r), 0.001) )/ (float(count) * 2.0 - 1.0);
-        color = color + vec4(v1, v1, v1, 1.0); 
-    }
-    return color;
+vec2 u_CanvasSize = vec2(iWidth, iHeight);
+vec2 center = u_CanvasSize / 2.0;
+float len1 = length(center);
+float pi = acos(-1.0);
+
+//渐变
+float texture1(float x) {
+  float a = x / u_CanvasSize.x;
+  float b = radians(360.0) * 0.5 * a+1.0;
+  return (sin(b) + 1.0) / 2.0;
 }
 
-vec4 gradient(vec2 co)
-{
-    vec4 color = vec4(0.0, 1.0, 1.0, 1.0);
-    float x = co.x - iWidth / 2.;
-    float y = co.y - iHeight / 2.;
-    float theta = atan(co.x - iWidth / 2., co.y - iHeight / 2.);
-    //theta += iTime;
-    float r = sqrt(x * x + y * y);
-    color = vec4(vec3(sin(theta * 4.0) + 3.0) / 4.0, 1.0);
-    return color;
+//水平拉丝
+float texture2(vec2 v) {
+  vec2 a = vec2(0.2222, 0.4444);
+  float n = dot(v, a);
+  return fract(tan(n));
+}
+
+//杂色
+float texture3(vec2 v) {
+  vec2 a = vec2(0.1234, 0.5678);
+  float n = dot(v, a);
+  return fract(tan(n) * 10000.0);
 }
 
 
 
-void main(){
-    gl_FragColor = mix(gradient(gl_FragCoord.xy), blur(gl_FragCoord.xy), 0.4) ;
+
+void main() {
+  //极坐标系转二维直角坐标系
+  //渐变
+  float f1 = texture1(gl_FragCoord.x*cos(1.)-gl_FragCoord.y*sin(1.));
+  f1 = 0.65 * f1 + 0.35;
+
+  //拉丝
+  float f2 = texture2(gl_FragCoord.xy);
+  f2 = f2*0.3+0.5;
+
+  //杂色
+  float f3 = texture3(gl_FragCoord.xy);
+
+  //复合颜色
+  float f = f1*f2;
+  vec3 color=rgb * f;
+  color*=1.4;
+  gl_FragColor = vec4(color, 1);
 }
+

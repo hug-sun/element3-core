@@ -11,7 +11,7 @@
 <script>
 import { E3Slider, E3SliderButton } from "element3-core";
 import { ref, computed } from "vue";
-import draw from "../../webglComponents/metal.frag";
+import draw from "../../webglComponents/metal2.frag";
 
 export default {
   components: {
@@ -50,7 +50,7 @@ export default {
         height: "40px",
         cursor:"pointer",
         textAlign: "center",
-        transform: `translate(${(value.value / 100) * width-25}px,-16px)`,
+        transform: `translate(${(value.value / 100) * width-20}px,-16px)`,
         boxShadow:"0px 3px 4px #000"
       };
     });

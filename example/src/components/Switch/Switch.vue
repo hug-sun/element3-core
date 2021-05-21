@@ -34,7 +34,7 @@
 <script>
 import { ref } from "vue";
 import { E3Switch } from "element3-core";
-import draw from "../../webglComponents/metal.frag";
+import draw from "../../webglComponents/metal3.frag";
 export default {
   components: {
     E3Switch,
