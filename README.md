@@ -1,6 +1,11 @@
 # element3-core
 this is a  headless ui components library based on the vue3
 
+## chat
+
+![Jietu20210522-132339@2x](https://user-images.githubusercontent.com/1905176/119215549-f7664180-bb00-11eb-9856-5dd1d8695cc3.jpg)
+
+
 ## Features
 
 - Logic and style separation
